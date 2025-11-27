@@ -20,7 +20,7 @@ export default function Hero() {
             MIGRATE
             </h1>
             <p className="text-lg md:text-xl text-white text-opacity-80 mb-8" data-aos="fade-up" data-aos-delay="100">
-              En MIGRATE te guiamos paso a paso para que puedas estudiar, trabajar y vivir en España de forma legal, segura y sin volverte loco con los trámites.
+              En MIGRATE te guiamos paso a paso para que puedas estudiar, trabajar y vivir en España de forma legal, segura.
              <br /> Acompañamiento antes, durante y después de tu viaje.
             </p>
             <div data-aos="fade-up" data-aos-delay="200">

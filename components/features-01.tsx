@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Illustration from '@/public/images/features-illustration.svg'
 import Carousel01 from '@/public/images/carousel-01.jpg'
 import Carousel02 from '@/public/images/carousel-02.jpg'
-import Carousel03 from '@/public/images/carousel-03.jpg'
+// Reemplazado el tercer slide por imagen1.webp (ruta pública)
 import Carousel04 from '@/public/images/carousel-04.jpg'
 import Carousel05 from '@/public/images/carousel-05.jpg'
 import Icon01 from '@/public/images/icon-01.svg'
@@ -84,10 +84,10 @@ export default function Features01() {
                   {/* Image */}
                   <Image
                     className="w-full aspect-4/3 object-cover h-full"
-                    src={Carousel03}
+                    src="/images/imagen1.webp"
                     width="446"
                     height="335"
-                    alt="Carousel 03"
+                    alt="Imagen 1"
                   />
                 </div>
                 <div className="swiper-slide max-w-[446px] h-auto">

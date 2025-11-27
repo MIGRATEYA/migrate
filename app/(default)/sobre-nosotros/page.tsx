@@ -45,10 +45,8 @@ export default function SobreNosotrosPage() {
 
       <h2 className="h4 font-cabinet-grotesk mb-3">Contacto</h2>
       <ul className="text-gray-600 space-y-2">
-        <li><strong>WhatsApp:</strong> [número]</li>
-        <li><strong>Email:</strong> [email]</li>
-        <li><strong>Horario:</strong> [horario]</li>
-        <li><strong>Países/ciudades donde operamos:</strong> [detalle]</li>
+        <li><strong>WhatsApp:</strong> [+34 605 57 41 36]</li>
+        <li><strong>Email:</strong> <a href="mailto:info@migrateya.com">info@migrateya.com</a></li>
       </ul>
     </section>
   )

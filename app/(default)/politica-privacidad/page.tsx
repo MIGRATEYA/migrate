@@ -14,7 +14,7 @@ export default function PrivacidadPage() {
         <li><strong>Responsable:</strong> [Razón social / Nombre]</li>
         <li><strong>NIF/CIF:</strong> [dato]</li>
         <li><strong>Domicilio:</strong> [dato]</li>
-        <li><strong>Email de contacto privacidad:</strong> [email]</li>
+        <li><strong>Email de contacto privacidad:</strong> <a href="mailto:info@migrateya.com">info@migrateya.com</a></li>
       </ul>
 
       <h2 className="h4 font-cabinet-grotesk mb-3">2. Datos personales que recopilamos</h2>
@@ -59,7 +59,7 @@ export default function PrivacidadPage() {
       <h2 className="h4 font-cabinet-grotesk mb-3">8. Derechos del usuario</h2>
       <p className="text-gray-600 mb-6">
         Acceso, rectificación, supresión, oposición, limitación, portabilidad y retirada del consentimiento. Para ejercerlos:
-        escribir a [email] indicando identidad y derecho.
+        escribir a <a href="mailto:info@migrateya.com">info@migrateya.com</a> indicando identidad y derecho.
       </p>
 
       <h2 className="h4 font-cabinet-grotesk mb-3">9. Reclamaciones</h2>

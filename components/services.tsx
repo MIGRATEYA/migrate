@@ -14,6 +14,9 @@ import Service12 from '@/public/images/service-12.jpg'
 import Service13 from '@/public/images/service-13.jpg'
 import Service14 from '@/public/images/service-14.jpg'
 import Service15 from '@/public/images/service-15.jpg'
+import ConstruccionImg from '@/public/images/construccion.webp'
+import SanitarioImg from '@/public/images/sanitario.webp'
+import HoteleriaImg from '@/public/images/hosteleria.webp'
 
 export default function Services() {
   return (
@@ -27,7 +30,67 @@ export default function Services() {
             </div>
 
             {/* Grid */}
-            <div className="max-w-2xl mx-auto grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 lg:max-w-none items-start">
+            <div className="max-w-2xl mx-auto grid gap-6 sm:gap-6 grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 lg:max-w-none items-start">
+              {/* Item - Construccion */}
+              <div className="h-full flex flex-col">
+                {/* Image */}
+                <div className="mb-4">
+                  <a className="block group overflow-hidden" href="#0">
+                    <Image
+                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
+                      src={ConstruccionImg}
+                      width="202"
+                      height="128"
+                      alt="Construcción"
+                    />
+                  </a>
+                </div>
+                <div className="grow text-center">
+                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
+                    Construccion
+                  </a>
+                </div>
+              </div>
+              {/* Item - Sanitario */}
+              <div className="h-full flex flex-col">
+                {/* Image */}
+                <div className="mb-4">
+                  <a className="block group overflow-hidden" href="#0">
+                    <Image
+                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
+                      src={SanitarioImg}
+                      width="202"
+                      height="128"
+                      alt="Sanitario"
+                    />
+                  </a>
+                </div>
+                <div className="grow text-center">
+                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
+                    Sanitario
+                  </a>
+                </div>
+              </div>
+              {/* Item - Hoteleria */}
+              <div className="h-full flex flex-col">
+                {/* Image */}
+                <div className="mb-4">
+                  <a className="block group overflow-hidden" href="#0">
+                    <Image
+                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
+                      src={HoteleriaImg}
+                      width="202"
+                      height="128"
+                      alt="Hotelería"
+                    />
+                  </a>
+                </div>
+                <div className="grow text-center">
+                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
+                    Hoteleria
+                  </a>
+                </div>
+              </div>
               {/* Item #1 */}
               <div className="h-full flex flex-col">
                 {/* Image */}
@@ -328,6 +391,7 @@ export default function Services() {
                   </a>
                 </div>
               </div>
+              
             </div>
 
             {/* Bottom gradient removed (no button) */}

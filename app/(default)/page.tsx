@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Home - Talent',
+  title: 'Migrate – Te ayudamos',
   description: 'Page description',
 }
 
@@ -8,6 +8,7 @@ import Explainer from '@/components/explainer'
 import Features01 from '@/components/features-01'
 import Features02 from '@/components/features-02'
 import Services from '@/components/services'
+import StudyWork from '@/components/study-work'
 import Pricing from '@/components/pricing'
 import Faqs from '@/components/faqs'
 import Cta from '@/components/cta'
@@ -20,6 +21,7 @@ export default function Home() {
       <Features01 />
       <Features02 />
       <Services />
+      <StudyWork />
       <Pricing />
       <Faqs />
       <Cta />

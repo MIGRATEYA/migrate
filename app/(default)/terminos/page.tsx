@@ -13,7 +13,7 @@ export default function TerminosPage() {
       <p className="text-gray-600 mb-6">
         El presente documento regula el acceso y uso del sitio web [dominio] (en adelante, “la Web”) y la contratación de
         servicios ofrecidos por MIGRATE, titularidad de [Razón social / Nombre y Apellidos], con [CIF/NIF], domicilio en
-        [dirección completa], correo [email] (en adelante, “MIGRATE”).
+        [dirección completa], correo <a href="mailto:info@migrateya.com">info@migrateya.com</a> (en adelante, “MIGRATE”).
       </p>
 
       <h2 className="h4 font-cabinet-grotesk mb-3">2. Aceptación</h2>

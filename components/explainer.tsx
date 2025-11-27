@@ -1,13 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
-import ModalVideo from '@/components/modal-video'
+import Image from 'next/image'
 import VideoThumb from '@/public/images/explainer.svg'
 
 export default function Explainer() {
-
-  const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false)
 
   return (
     <section>
@@ -20,15 +17,13 @@ export default function Explainer() {
 
           {/* Section image */}
           <div className="flex justify-center pb-12 md:pb-16" data-aos="fade-up">
-
-            <ModalVideo
-              thumb={VideoThumb}
-              thumbWidth={768}
-              thumbHeight={432}
-              thumbAlt="Modal video thumbnail"
-              video="/videos/video.mp4"
-              videoWidth={1920}
-              videoHeight={1080} />   
+            <Image
+              src={VideoThumb}
+              width={768}
+              height={432}
+              alt="Explicador"
+              className="rounded-md"
+            />
 
           </div>
 
@@ -45,7 +40,7 @@ export default function Explainer() {
                   1
                 </div>
                 <h3 className="font-cabinet-grotesk font-bold text-lg">Evaluación de tu caso</h3>
-                <div className="text-gray-500">Agendas una llamada o completas un formulario rápido. Analizamos tu perfil, tu país, tu objetivo (estudiar, trabajar, venir con familia) y te decimos qué opciones reales tienes.</div>
+                <div className="text-gray-500">Agendamos una llamada y analizamos tu perfil, tu objetivo (estudiar, trabajar, venir con familia) y te decimos qué opciones reales tienes.</div>
               </div>
 
               {/* #2 */}
@@ -54,7 +49,7 @@ export default function Explainer() {
                   2
                 </div>
                 <h3 className="font-cabinet-grotesk font-bold text-lg">Plan migratorio personalizado</h3>
-                <div className="text-gray-500">Diseñamos contigo un plan paso a paso: tipo de visado, estudios o ruta laboral recomendada, tiempos estimados, documentos que necesitas y riesgos que debes tener en cuenta.</div>
+                <div className="text-gray-500">Diseñamos contigo un plan paso a paso: tipo de visado, estudios o ruta laboral recomendada, tiempos estimados y documentos que necesitas</div>
               </div>
 
               {/* #3 */}
@@ -63,7 +58,7 @@ export default function Explainer() {
                   3
                 </div>
                 <h3 className="font-cabinet-grotesk font-bold text-lg">Acompañamiento en todo el proceso</h3>
-                <div className="text-gray-500">Te acompañamos en la preparación de la documentación, la presentación del trámite y el seguimiento hasta que obtengas tu resolución y estés instalado en España.</div>
+                <div className="text-gray-500">Te acompañamos en la preparación de la documentación, la presentación del trámite y el seguimiento hasta que obtengas tu visado y estés instalado en España.</div>
               </div>
 
               {/* #4 */}
@@ -72,7 +67,7 @@ export default function Explainer() {
                   4
                 </div>
                 <h3 className="font-cabinet-grotesk font-bold text-lg">Seguimiento y vida real en España</h3>
-                <div className="text-gray-500">Una vez obtienes tu visado o resolución y ya estás en España, no te dejamos solo. Te guiamos en los siguientes pasos: renovaciones, cambios de tipo de permiso o ruta para quedarte a largo plazo.</div>
+                <div className="text-gray-500">Una vez obtienes tu visado y llegas a España te guiamos en los siguientes pasos para quedarte a largo plazo.</div>
               </div>
             </div>
           </div>
