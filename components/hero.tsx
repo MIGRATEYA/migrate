@@ -19,6 +19,8 @@ export default function Hero() {
             <h1 className="h1 font-cabinet-grotesk text-white mb-2" data-aos="fade-up">
             MIGRATE
             </h1>
+            <br></br>
+            <h3 className="h3 font-cabinet-grotesk text-white mb-3">Vive y trabaja en España!!!</h3>
             <p className="text-lg md:text-xl text-white text-opacity-80 mb-8" data-aos="fade-up" data-aos-delay="100">
               En MIGRATE te guiamos paso a paso para que puedas estudiar, trabajar y vivir en España de forma legal, segura.
              <br /> Acompañamiento antes, durante y después de tu viaje.

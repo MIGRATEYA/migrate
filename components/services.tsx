@@ -18,9 +18,26 @@ import ConstruccionImg from '@/public/images/construccion.webp'
 import SanitarioImg from '@/public/images/sanitario.webp'
 import HoteleriaImg from '@/public/images/hosteleria.webp'
 
+function SlideUpWords({ text }: { text: string }) {
+  const words = text.split(' ')
+  return (
+    <div className="flex flex-wrap justify-center gap-x-1 leading-snug px-2 text-center">
+      {words.map((word, index) => (
+        <span
+          key={`${word}-${index}`}
+          className="text-white text-sm sm:text-lg md:text-2xl font-cabinet-grotesk font-bold drop-shadow transition-all duration-300 ease-out md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0"
+          style={{ transitionDelay: `${index * 40}ms` }}
+        >
+          {word}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 export default function Services() {
   return (
-    <section className="bg-gray-900">
+    <section className="bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           <div className="relative">
@@ -29,369 +46,44 @@ export default function Services() {
               <h2 className="h2 font-cabinet-grotesk text-gray-100">Ejemplos de estudios que pueden ayudarte a conseguir o mantener tu estancia legal en España.</h2>
             </div>
 
-            {/* Grid */}
-            <div className="max-w-2xl mx-auto grid gap-6 sm:gap-6 grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 lg:max-w-none items-start">
-              {/* Item - Construccion */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
+            {/* Grid estilo cards con overlay y texto centrado */}
+            <div className="max-w-6xl mx-auto grid gap-3 sm:gap-4 grid-cols-3 md:grid-cols-3 lg:grid-cols-6">
+              {[
+                { t: 'Estudios de Construcción', s: ConstruccionImg, a: 'Construcción' },
+                { t: 'Estudios de Sanitario', s: SanitarioImg, a: 'Sanitario' },
+                { t: 'Estudios de Hotelería', s: HoteleriaImg, a: 'Hotelería' },
+                { t: 'Diseño de sistemas', s: Service01, a: 'Item 01' },
+                { t: 'Administración y Finanzas', s: Service02, a: 'Item 02' },
+                { t: 'Ilustración', s: Service03, a: 'Item 03' },
+                { t: 'Publicidad', s: Service04, a: 'Item 04' },
+                { t: 'Wireframes', s: Service05, a: 'Item 05' },
+                { t: 'Grado en Marketing y Comercio Digital', s: Service06, a: 'Item 06' },
+                { t: 'Grado en ADE', s: Service07, a: 'Item 07' },
+                { t: 'Grado en Turismo y Hostelería', s: Service08, a: 'Item 08' },
+                { t: 'Edición de video', s: Service09, a: 'Item 09' },
+                { t: 'FP en Desarrollo web', s: Service10, a: 'Item 10' },
+                { t: 'Señalización', s: Service11, a: 'Item 11' },
+                { t: 'Máster en Marketing Digital', s: Service12, a: 'Item 12' },
+                { t: 'Auxiliares de Enfermería', s: Service13, a: 'Item 13' },
+                { t: 'Máster en Data & Business Analytics', s: Service14, a: 'Item 14' },
+                { t: 'Máster en Recursos Humanos', s: Service15, a: 'Item 15' },
+              ].map((it, idx) => (
+                <a key={idx} href="https://wa.me/34605574136" className="relative group block rounded-lg overflow-hidden">
+                  <div className="aspect-[4/3] w-full relative">
                     <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={ConstruccionImg}
-                      width="202"
-                      height="128"
-                      alt="Construcción"
+                      src={it.s}
+                      alt={it.a}
+                      fill
+                      sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Construccion
-                  </a>
-                </div>
-              </div>
-              {/* Item - Sanitario */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={SanitarioImg}
-                      width="202"
-                      height="128"
-                      alt="Sanitario"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Sanitario
-                  </a>
-                </div>
-              </div>
-              {/* Item - Hoteleria */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={HoteleriaImg}
-                      width="202"
-                      height="128"
-                      alt="Hotelería"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Hoteleria
-                  </a>
-                </div>
-              </div>
-              {/* Item #1 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service01}
-                      width="202"
-                      height="128"
-                      alt="Item 01"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Diseño de sistemas
-                  </a>
-                </div>
-              </div>
-              {/* Item #2 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service02}
-                      width="202"
-                      height="128"
-                      alt="Item 02"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Administración y Finanzas
-                  </a>
-                </div>
-              </div>
-              {/* Item #3 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service03}
-                      width="202"
-                      height="128"
-                      alt="Item 03"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Ilustración
-                  </a>
-                </div>
-              </div>
-              {/* Item #4 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service04}
-                      width="202"
-                      height="128"
-                      alt="Item 04"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Publicidad
-                  </a>
-                </div>
-              </div>
-              {/* Item #5 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service05}
-                      width="202"
-                      height="128"
-                      alt="Item 05"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Wireframes
-                  </a>
-                </div>
-              </div>
-              {/* Item #6 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service06}
-                      width="202"
-                      height="128"
-                      alt="Item 06"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Grado en Marketing y Comercio Digital
-                  </a>
-                </div>
-              </div>
-              {/* Item #7 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service07}
-                      width="202"
-                      height="128"
-                      alt="Item 07"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Grado en Administración y Dirección de Empresas (ADE)
-                  </a>
-                </div>
-              </div>
-              {/* Item #8 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service08}
-                      width="202"
-                      height="128"
-                      alt="Item 08"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Grado en Turismo y Hostelería
-                  </a>
-                </div>
-              </div>
-              {/* Item #9 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service09}
-                      width="202"
-                      height="128"
-                      alt="Item 09"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Edición de video
-                  </a>
-                </div>
-              </div>
-              {/* Item #10 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service10}
-                      width="202"
-                      height="128"
-                      alt="Item 10"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    FP en Desarrollo web
-                  </a>
-                </div>
-              </div>
-              {/* Item #11 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service11}
-                      width="202"
-                      height="128"
-                      alt="Item 11"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Señalización
-                  </a>
-                </div>
-              </div>
-              {/* Item #12 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service12}
-                      width="202"
-                      height="128"
-                      alt="Item 12"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Máster en Marketing Digital
-                  </a>
-                </div>
-              </div>
-              {/* Item #13 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service13}
-                      width="202"
-                      height="128"
-                      alt="Item 13"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    FP en Cuidados Auxiliares de Enfermería
-                  </a>
-                </div>
-              </div>
-              {/* Item #14 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service14}
-                      width="202"
-                      height="128"
-                      alt="Item 14"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Máster en Data & Business Analytics
-                  </a>
-                </div>
-              </div>
-              {/* Item #15 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <Image
-                      className="w-full aspect-101/64 object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service15}
-                      width="202"
-                      height="128"
-                      alt="Item 15"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">
-                    Máster en Recursos Humanos
-                  </a>
-                </div>
-              </div>
-              
+                    <div className="absolute inset-0 bg-black/60 md:bg-black/35 group-hover:bg-black/45 transition-colors duration-300" />
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <SlideUpWords text={it.t} />
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
 
             {/* Bottom gradient removed (no button) */}

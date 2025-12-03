@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Rutas públicas principales (excluimos rutas de autenticación y API)
   const routes = [
     '/',
+    '/estudios',
     '/sobre-nosotros',
     '/terminos',
     '/aviso-legal',
@@ -23,5 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === '/' ? 1 : 0.7 - index * 0.05, // home más alta, resto decreciente leve
   }))
 }
+
 
 
