@@ -18,6 +18,7 @@ function createTransporter() {
     SMTP_USER,
     SMTP_PASS,
     SMTP_SECURE,
+    SMTP_REQUIRE_TLS,
   } = process.env
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
@@ -29,11 +30,19 @@ function createTransporter() {
     typeof SMTP_SECURE === "string"
       ? SMTP_SECURE.toLowerCase() === "true"
       : portNum === 465
+  const requireTLS =
+    typeof SMTP_REQUIRE_TLS === "string"
+      ? SMTP_REQUIRE_TLS.toLowerCase() === "true"
+      : !secure && portNum === 587
 
   return nodemailer.createTransport({
     host: SMTP_HOST,
     port: portNum,
     secure,
+    requireTLS,
+    tls: {
+      minVersion: "TLSv1.2",
+    },
     auth: {
       user: SMTP_USER,
       pass: SMTP_PASS,
