@@ -75,6 +75,12 @@ export async function sendEmail({ to, subject, text, html, from, replyTo }) {
   }
 }
 
+export async function verifySmtp() {
+  const transporter = createTransporter()
+  // nodemailer verify intenta autenticarse/negociar con el servidor
+  return transporter.verify()
+}
+
 export default sendEmail
 
 
