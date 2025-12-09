@@ -3,11 +3,9 @@ import { verifySmtp } from '@/app/api/sendEmail'
 
 export async function GET() {
   try {
-    // Comprobar presencia de variables críticas (sin exponer valores)
-    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env
-    const missing = ['SMTP_HOST','SMTP_PORT','SMTP_USER','SMTP_PASS'].filter(
-      (k) => !(process.env as any)[k],
-    )
+    // Comprobar presencia de variables críticas (Microsoft Graph)
+    const { MS_TENANT_ID, MS_CLIENT_ID, MS_CLIENT_SECRET, MS_SENDER_UPN } = process.env
+    const missing = ['MS_TENANT_ID','MS_CLIENT_ID','MS_CLIENT_SECRET','MS_SENDER_UPN'].filter((k) => !(process.env as any)[k])
     if (missing.length) {
       return NextResponse.json({
         ok: false,
