@@ -54,7 +54,6 @@ export async function sendEmail({ to, subject, text, html, from, replyTo }) {
       subject,
       body: { contentType, content: bodyContent },
       toRecipients: toList.map((addr) => ({ emailAddress: { address: addr } })),
-      from: { emailAddress: { address: MS_SENDER_UPN, name: fromName } },
       replyTo: replyTo
         ? [{ emailAddress: { address: replyTo } }]
         : undefined,
