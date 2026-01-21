@@ -27,6 +27,14 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li className="ml-6">
+                <Link
+                  className="text-sm font-medium text-white hover:text-blue-200 transition duration-150 ease-in-out"
+                  href="/empresas"
+                >
+                  Empresas
+                </Link>
+              </li>
+              <li className="ml-6">
                 <Link className="btn-sm inline-flex items-center text-white bg-gray-900 hover:bg-gray-800 group" href="https://wa.me/34605574136">
                   Contacta con nosotros
                   <span className="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">

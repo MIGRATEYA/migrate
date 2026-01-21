@@ -115,7 +115,7 @@ export default function ContactForm() {
           <form onSubmit={onSubmit} className="max-w-3xl mx-auto space-y-4">
             {status === 'success' && (
               <div className="rounded-md bg-emerald-500/20 text-emerald-50 border border-emerald-400 px-4 py-3">
-                ¡Enviado correctamente! Te redirigimos al inicio...
+                ¡Enviado correctamente! Te contactaremos en breve...
               </div>
             )}
             {status === 'error' && (

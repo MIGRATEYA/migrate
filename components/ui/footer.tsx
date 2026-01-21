@@ -31,6 +31,11 @@ export default function Footer() {
             <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">Empresa</h6>
             <ul className="text-sm space-y-2">
               <li>
+                <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/empresas">
+                  Empresas
+                </Link>
+              </li>
+              <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/sobre-nosotros">
                   Sobre nosotros
                 </Link>
