@@ -68,6 +68,7 @@ export async function POST(request: Request) {
           text: confirmText,
           html: confirmHtml,
           from,
+          replyTo: to,
         })
       } catch (confirmError: any) {
         // eslint-disable-next-line no-console
