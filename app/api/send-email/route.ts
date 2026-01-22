@@ -4,7 +4,19 @@ import sendEmail from '@/app/api/sendEmail'
 export async function POST(request: Request) {
   try {
     const body = await request.json().catch(() => ({}))
-    const { to, subject, text, html, from, replyTo, recaptchaToken } = body || {}
+    const {
+      to,
+      subject,
+      text,
+      html,
+      from,
+      replyTo,
+      recaptchaToken,
+      confirmTo,
+      confirmSubject,
+      confirmText,
+      confirmHtml,
+    } = body || {}
 
     if (!to || !subject || (!text && !html)) {
       return NextResponse.json({
@@ -47,6 +59,22 @@ export async function POST(request: Request) {
     }
 
     const result = await sendEmail({ to, subject, text, html, from, replyTo })
+
+    if (confirmTo && (confirmText || confirmHtml)) {
+      try {
+        await sendEmail({
+          to: confirmTo,
+          subject: confirmSubject || 'Gracias por contactarnos',
+          text: confirmText,
+          html: confirmHtml,
+          from,
+        })
+      } catch (confirmError: any) {
+        // eslint-disable-next-line no-console
+        console.error('[send-email] Error confirmación:', confirmError)
+      }
+    }
+
     return NextResponse.json({ ok: true, result })
   } catch (error: any) {
     // Log detallado para el servidor

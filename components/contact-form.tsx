@@ -74,6 +74,14 @@ export default function ContactForm() {
       `Teléfono: ${phone || '-'}`,
       `País: ${country}`,
     ].join('\n')
+    const confirmSubject = 'Gracias por registrarte'
+    const confirmText = [
+      `Hola ${fullName || 'hola'},`,
+      '',
+      'Gracias por darte de alta. En breve un miembro de nuestro equipo se pondrá en contacto contigo.',
+      '',
+      'Equipo MIGRATE YA',
+    ].join('\n')
 
     try {
       setStatus('loading')
@@ -81,7 +89,17 @@ export default function ContactForm() {
       const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ to, subject, text, recaptchaToken: token, action: 'contact_submit', replyTo: email }),
+        body: JSON.stringify({
+          to,
+          subject,
+          text,
+          recaptchaToken: token,
+          action: 'contact_submit',
+          replyTo: email,
+          confirmTo: email,
+          confirmSubject,
+          confirmText,
+        }),
       })
       const data = await (async () => { try { return await res.json() } catch { return {} as any } })()
       if (!res.ok || !(data as any)?.ok) {
@@ -162,7 +180,7 @@ export default function ContactForm() {
             </div>
             {/* En v3 no hay widget visible */}
             <div className="flex items-center justify-end">
-              <button type="submit" disabled={status==='loading'} className="inline-flex items-center px-6 py-3 rounded-lg text-gray-900 bg-blue-400 hover:bg-yellow-500 font-medium shadow-md transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+              <button type="submit" disabled={status==='loading'} className="inline-flex items-center px-6 py-3 rounded-lg text-gray-900 bg-yellow-400 hover:bg-yellow-600 font-medium shadow-md transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
                 {status==='loading' ? 'Enviando...' : 'Enviar'}
                 <span className="tracking-normal text-blue-600 ml-2">
                   <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
