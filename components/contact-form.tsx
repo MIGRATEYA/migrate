@@ -74,11 +74,11 @@ export default function ContactForm() {
       `Teléfono: ${phone || '-'}`,
       `País: ${country}`,
     ].join('\n')
-    const confirmSubject = 'Gracias por registrarte'
+    const confirmSubject = 'Hemos recibido tu solicitud'
     const confirmText = [
       `Hola ${fullName || 'hola'},`,
       '',
-      'Gracias por darte de alta. En breve un miembro de nuestro equipo se pondrá en contacto contigo.',
+      'Gracias por contactarnos. En breve un miembro de nuestro equipo se pondrá en contacto contigo.',
       '',
       'Equipo MIGRATE YA',
     ].join('\n')

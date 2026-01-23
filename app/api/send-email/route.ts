@@ -1,6 +1,44 @@
 import { NextResponse } from 'next/server'
 import sendEmail from '@/app/api/sendEmail'
 
+async function sendResendEmail({
+  to,
+  subject,
+  text,
+  html,
+  from,
+}: {
+  to: string | string[]
+  subject: string
+  text?: string
+  html?: string
+  from: string
+}) {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    throw new Error('Falta RESEND_API_KEY')
+  }
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from,
+      to: Array.isArray(to) ? to : [to],
+      subject,
+      text,
+      html,
+    }),
+  })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok) {
+    throw new Error(`Resend falló: ${data?.message || res.statusText}`)
+  }
+  return data
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json().catch(() => ({}))
@@ -62,13 +100,16 @@ export async function POST(request: Request) {
 
     if (confirmTo && (confirmText || confirmHtml)) {
       try {
-        await sendEmail({
+        const resendFrom =
+          process.env.RESEND_FROM ||
+          process.env.MS_SENDER_UPN ||
+          'MIGRATE <info@migrateya.com>'
+        await sendResendEmail({
           to: confirmTo,
           subject: confirmSubject || 'Gracias por contactarnos',
           text: confirmText,
           html: confirmHtml,
-          from,
-          replyTo: to,
+          from: resendFrom,
         })
       } catch (confirmError: any) {
         // eslint-disable-next-line no-console
