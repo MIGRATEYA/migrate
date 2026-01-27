@@ -7,13 +7,13 @@ export default function PrivacidadPage() {
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
       <h1 className="h2 font-cabinet-grotesk mb-6">Política de Privacidad</h1>
-      <p className="text-gray-600 mb-6"><strong>Última actualización:</strong> [fecha]</p>
+      <p className="text-gray-600 mb-6"><strong>Última actualización:</strong> 22/01/2026</p>
 
       <h2 className="h4 font-cabinet-grotesk mb-3">1. Responsable del tratamiento</h2>
       <ul className="text-gray-600 space-y-2 mb-6">
-        <li><strong>Responsable:</strong> [Razón social / Nombre]</li>
-        <li><strong>NIF/CIF:</strong> [dato]</li>
-        <li><strong>Domicilio:</strong> [dato]</li>
+        <li><strong>Responsable:</strong> MIGRATE YA, SOCIEDAD LIMITADA</li>
+        <li><strong>NIF/CIF:</strong> B26602029</li>
+        <li><strong>Domicilio:</strong> CALLE GRAN VIA NUM 64</li>
         <li><strong>Email de contacto privacidad:</strong> <a href="mailto:info@migrateya.com">info@migrateya.com</a></li>
       </ul>
 
@@ -35,39 +35,56 @@ export default function PrivacidadPage() {
         <li>Información comercial (según consentimiento o base legítima)</li>
       </ul>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">4. Base legal</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">4. Chatbot y comunicaciones por WhatsApp</h2>
+      <p className="text-gray-600 mb-4">
+        Si decides contactar con nosotros por WhatsApp, tus mensajes y datos de contacto serán tratados para atender tu
+        solicitud, realizar seguimiento y coordinar la comunicación. El uso de este canal es voluntario y se basa en tu
+        consentimiento al iniciar la conversación o en nuestro interés legítimo de atender consultas.
+      </p>
+      <p className="text-gray-600 mb-6">
+        El servicio de mensajería es proporcionado por WhatsApp (Meta Platforms Ireland Limited). Esto puede implicar
+        transferencias internacionales de datos fuera del EEE, amparadas en garantías adecuadas (por ejemplo, cláusulas
+        contractuales tipo).
+      </p>
+
+      <h2 className="h4 font-cabinet-grotesk mb-3">5. Base legal</h2>
       <p className="text-gray-600 mb-6">
         Ejecución de contrato/medidas precontractuales; consentimiento; cumplimiento de obligación legal; interés legítimo.
       </p>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">5. Conservación</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">6. Conservación</h2>
       <p className="text-gray-600 mb-6">
         Conservaremos los datos durante la relación contractual y los plazos necesarios por ley. En consultas no contratadas,
-        por [X meses]; en comunicaciones comerciales, hasta baja del usuario.
+        por 12 meses; en comunicaciones comerciales, hasta baja del usuario.
       </p>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">6. Destinatarios</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">7. Destinatarios</h2>
       <p className="text-gray-600 mb-6">
         Proveedores tecnológicos, profesionales colaboradores necesarios y autoridades públicas cuando exista obligación legal.
       </p>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">7. Transferencias internacionales</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">8. Transferencias internacionales</h2>
       <p className="text-gray-600 mb-6">
-        Si se usan proveedores fuera de [país/EEE], se aplicarán garantías adecuadas cuando sea exigible.
+        Si se usan proveedores fuera del EEE, se aplicarán garantías adecuadas cuando sea exigible (por ejemplo, cláusulas
+        contractuales tipo aprobadas por la Comisión Europea).
       </p>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">8. Derechos del usuario</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">9. Derechos del usuario</h2>
       <p className="text-gray-600 mb-6">
         Acceso, rectificación, supresión, oposición, limitación, portabilidad y retirada del consentimiento. Para ejercerlos:
         escribir a <a href="mailto:info@migrateya.com">info@migrateya.com</a> indicando identidad y derecho.
       </p>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">9. Reclamaciones</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">10. Reclamaciones</h2>
       <p className="text-gray-600 mb-6">
-        El usuario puede reclamar ante [autoridad de control] (si España: AEPD) o la autoridad correspondiente.
+        El usuario puede reclamar ante la Agencia Española de Protección de Datos (AEPD) en{' '}
+        <a href="https://www.aepd.es" target="_blank" rel="noreferrer">
+          www.aepd.es
+        </a>
+        .
       </p>
 
-      <h2 className="h4 font-cabinet-grotesk mb-3">10. Otros</h2>
+      <h2 className="h4 font-cabinet-grotesk mb-3">11. Otros</h2>
       <p className="text-gray-600">
         Seguridad, menores, cambios de la política y versión vigente publicada en la Web.
       </p>
