@@ -1,60 +1,21 @@
 'use client'
 
 import Illustration from '@/public/images/hero-illustration.svg'
-
-type Step = {
-  num: number
-  tag: string
-  title: string
-  desc: string
-}
-
-const STEPS: Step[] = [
-  {
-    num: 1,
-    tag: 'DOCUMENTOS',
-    title: 'Primero, preparo mis documentos',
-    desc:
-      'Me aseguro de tener en orden todos los papeles necesarios antes de iniciar cualquier trámite.',
-  },
-  {
-    num: 2,
-    tag: 'MATRICULACIÓN',
-    title: 'Luego, me matriculo',
-    desc:
-      'Elijo e ingreso en uno de los Cursos Oficiales Acreditados. Esto valida mi propósito de venir.',
-  },
-  {
-    num: 3,
-    tag: 'VIAJE',
-    title: 'Con la matrícula, viajo a España',
-    desc:
-      'Hago el viaje para establecerme en el país y continuar con los siguientes pasos.',
-  },
-  {
-    num: 4,
-    tag: 'SOLICITUD',
-    title: 'Presento mi solicitud',
-    desc:
-      'Formalizo la Solicitud de Estancia para estar legalmente en España mientras estudio.',
-  },
-  {
-    num: 5,
-    tag: 'ESTUDIOS',
-    title: 'Comienzo mis estudios',
-    desc:
-      'Empiezo las clases en la fecha indicada, cumpliendo con el objetivo principal de mi estancia.',
-  },
-  {
-    num: 6,
-    tag: 'TRABAJO',
-    title: 'Y lo mejor, ¡a trabajar!',
-    desc:
-      'Cuando resuelven favorablemente mi Solicitud de Estancia, ya tengo permiso para empezar a trabajar.',
-  },
-]
+import { useLanguage } from '@/lib/i18n/context'
 
 export default function StepsFlow() {
+  const { t } = useLanguage()
+  const s = t.stepsFlow
+
+  const steps = [
+    { num: 1, tag: s.step1Tag, title: s.step1Title, desc: s.step1Desc },
+    { num: 2, tag: s.step2Tag, title: s.step2Title, desc: s.step2Desc },
+    { num: 3, tag: s.step3Tag, title: s.step3Title, desc: s.step3Desc },
+    { num: 4, tag: s.step4Tag, title: s.step4Title, desc: s.step4Desc },
+    { num: 5, tag: s.step5Tag, title: s.step5Title, desc: s.step5Desc },
+    { num: 6, tag: s.step6Tag, title: s.step6Title, desc: s.step6Desc },
+  ]
+
   return (
     <section className="relative overflow-hidden">
       {/* Fondo azul al estilo del hero */}
@@ -67,11 +28,11 @@ export default function StepsFlow() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-20 pb-16 md:pt-24 md:pb-20">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <h2 className="h2 font-cabinet-grotesk text-white">Guia en 6 pasos</h2>
+            <h2 className="h2 font-cabinet-grotesk text-white">{s.heading}</h2>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map((step) => (
+            {steps.map((step) => (
               <div
                 key={step.num}
                 className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 backdrop-blur-sm hover:bg-white/10 transition-colors"
@@ -96,5 +57,3 @@ export default function StepsFlow() {
     </section>
   )
 }
-
-

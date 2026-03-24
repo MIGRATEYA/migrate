@@ -1,6 +1,7 @@
 import './css/style.css'
 
 import localFont from 'next/font/local'
+import { LanguageProvider } from '@/lib/i18n/context'
 
 const aspekta = localFont({
   src: [
@@ -51,9 +52,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${aspekta.variable} ${cabinet.variable} font-aspekta antialiased bg-white text-gray-900 font-[350]`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

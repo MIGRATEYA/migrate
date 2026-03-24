@@ -1,8 +1,13 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import Illustration from '@/public/images/footer-illustration.svg'
+import { useLanguage } from '@/lib/i18n/context'
 
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="relative">
       {/* Bg */}
@@ -24,55 +29,50 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* 2nd block - eliminado por requerimiento */}
-
           {/* 3er bloque */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">Empresa</h6>
+            <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">{t.footer.companySection}</h6>
             <ul className="text-sm space-y-2">
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/empresas">
-                  Empresas
+                  {t.footer.companies}
                 </Link>
               </li>
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/sobre-nosotros">
-                  Sobre nosotros
+                  {t.footer.aboutUs}
                 </Link>
               </li>
-              
             </ul>
           </div>
 
-          {/* 4º bloque - eliminado por requerimiento */}
-
           {/* 5º bloque */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">Recursos</h6>
+            <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">{t.footer.resourcesSection}</h6>
             <ul className="text-sm space-y-2">
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/terminos">
-                  Términos del servicio
+                  {t.footer.terms}
                 </Link>
               </li>
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/aviso-legal">
-                  Aviso legal
+                  {t.footer.legalNotice}
                 </Link>
               </li>
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/politica-privacidad">
-                  Política de privacidad
+                  {t.footer.privacy}
                 </Link>
               </li>
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="/politica-cookies">
-                  Política de cookies
+                  {t.footer.cookies}
                 </Link>
               </li>
               <li>
                 <Link className="text-blue-300 hover:text-white transition duration-150 ease-in-out" href="https://wa.me/34605574136">
-                  Contacto
+                  {t.footer.contact}
                 </Link>
               </li>
             </ul>
@@ -119,7 +119,7 @@ export default function Footer() {
           </ul>
 
           {/* Copyrights */}
-          <div className="text-sm text-blue-300">© MIGRATEYA.COM  Todos los derechos reservados.</div>
+          <div className="text-sm text-blue-300">{t.footer.rights}</div>
         </div>
       </div>
     </footer>

@@ -1,17 +1,22 @@
+'use client'
+
 import {
   ScrollVelocityContainer,
   ScrollVelocityRow,
 } from "@/registry/magicui/scroll-based-velocity"
+import { useLanguage } from "@/lib/i18n/context"
 
 export function ScrollBasedVelocityDemo() {
+  const { t } = useLanguage()
+
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <ScrollVelocityContainer className="text-4xl font-bold tracking-[-0.02em] md:text-7xl md:leading-[5rem]">
         <ScrollVelocityRow baseVelocity={20} direction={1}>
-        ¿Quieres migrar a España?
+          {t.scrollVelocity.text}
         </ScrollVelocityRow>
         <ScrollVelocityRow baseVelocity={20} direction={-1}>
-        ¿Quieres migrar a España?
+          {t.scrollVelocity.text}
         </ScrollVelocityRow>
       </ScrollVelocityContainer>
 
@@ -20,5 +25,3 @@ export function ScrollBasedVelocityDemo() {
     </div>
   )
 }
-
-

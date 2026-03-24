@@ -1,29 +1,18 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from '@/lib/i18n/context'
 
 export default function Faqs() {
+  const { t } = useLanguage()
+  const f = t.faqs
+
   const items = [
-    {
-      q: 'FAQ 1 – ¿Con visa de estudiante puedo trabajar en España?',
-      a: 'Sí, en muchos casos la visa de estudiante permite trabajar hasta 30 horas semanales, siempre que cumplas los requisitos y tengas la autorización correspondiente. En MIGRATE te explicamos cómo funciona según tu caso concreto y tu programa de estudios.',
-    },
-    {
-      q: 'FAQ 2 – ¿Cuánto tarda todo el proceso?',
-      a: 'Depende de tu país, del consulado y del tipo de trámite, pero en general conviene empezar al menos 4–6 meses antes de la fecha en la que quieres viajar o cambiar tu estatus. En la primera consulta te damos una estimación realista de tiempos.',
-    },
-    {
-      q: 'FAQ 3 – ¿Puedo ir con mi familia?',
-      a: 'En muchos supuestos sí. Existen figuras como reagrupación familiar o residencia como familiar de ciudadano de la UE, además de opciones para que tus hijos estudien en España. Analizamos quiénes te pueden acompañar y cuál es la vía legal adecuada.',
-    },
-    {
-      q: 'FAQ 4 – ¿Qué pasa si me niegan el visado o el trámite?',
-      a: 'Revisamos la resolución, analizamos las causas y te asesoramos sobre si merece la pena presentar un recurso o reformular la estrategia. En algunos casos es mejor insistir; en otros, cambiar de ruta. Nunca te dejaremos solo con una denegación sin explicación.',
-    },
-    {
-      q: 'FAQ 5 – ¿Puedo empezar aunque todavía no tenga claro si quiero estudiar o trabajar?',
-      a: 'Claro. Muchas personas empiezan con la idea de “solo estudiar” y terminan combinando estudio + trabajo o planificando una ruta de residencia a largo plazo. En MIGRATE te ayudamos a ordenar ideas y tomar decisiones con información realista.',
-    },
+    { q: f.q1, a: f.a1 },
+    { q: f.q2, a: f.a2 },
+    { q: f.q3, a: f.a3 },
+    { q: f.q4, a: f.a4 },
+    { q: f.q5, a: f.a5 },
   ]
 
   const [open, setOpen] = useState<Record<number, boolean>>({})
@@ -35,7 +24,7 @@ export default function Faqs() {
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto pb-10">
-            <h2 className="h2 font-cabinet-grotesk">Preguntas frecuentes sobre migrar a España</h2>
+            <h2 className="h2 font-cabinet-grotesk">{f.heading}</h2>
           </div>
 
           <div className="max-w-3xl mx-auto divide-y divide-gray-200 rounded-lg border border-gray-200 overflow-hidden">

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Service01 from '@/public/images/service-01.jpg'
 import Service02 from '@/public/images/service-02.jpg'
@@ -17,6 +19,7 @@ import Service15 from '@/public/images/service-15.jpg'
 import ConstruccionImg from '@/public/images/construccion.webp'
 import SanitarioImg from '@/public/images/sanitario.webp'
 import HoteleriaImg from '@/public/images/hosteleria.webp'
+import { useLanguage } from '@/lib/i18n/context'
 
 function SlideUpWords({ text }: { text: string }) {
   const words = text.split(' ')
@@ -36,6 +39,29 @@ function SlideUpWords({ text }: { text: string }) {
 }
 
 export default function Services() {
+  const { t } = useLanguage()
+
+  const items = [
+    { t: 'Estudios de Construcción', s: ConstruccionImg, a: 'Construcción' },
+    { t: 'Estudios de Sanitario', s: SanitarioImg, a: 'Sanitario' },
+    { t: 'Estudios de Hotelería', s: HoteleriaImg, a: 'Hotelería' },
+    { t: 'Diseño de sistemas', s: Service01, a: 'Item 01' },
+    { t: 'Administración y Finanzas', s: Service02, a: 'Item 02' },
+    { t: 'Ilustración', s: Service03, a: 'Item 03' },
+    { t: 'Publicidad', s: Service04, a: 'Item 04' },
+    { t: 'Wireframes', s: Service05, a: 'Item 05' },
+    { t: 'Grado en Marketing y Comercio Digital', s: Service06, a: 'Item 06' },
+    { t: 'Grado en ADE', s: Service07, a: 'Item 07' },
+    { t: 'Grado en Turismo y Hostelería', s: Service08, a: 'Item 08' },
+    { t: 'Edición de video', s: Service09, a: 'Item 09' },
+    { t: 'FP en Desarrollo web', s: Service10, a: 'Item 10' },
+    { t: 'Señalización', s: Service11, a: 'Item 11' },
+    { t: 'Máster en Marketing Digital', s: Service12, a: 'Item 12' },
+    { t: 'Auxiliares de Enfermería', s: Service13, a: 'Item 13' },
+    { t: 'Máster en Data & Business Analytics', s: Service14, a: 'Item 14' },
+    { t: 'Máster en Recursos Humanos', s: Service15, a: 'Item 15' },
+  ]
+
   return (
     <section className="bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -43,31 +69,12 @@ export default function Services() {
           <div className="relative">
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-              <h2 className="h2 font-cabinet-grotesk text-gray-100">Ejemplos de estudios que pueden ayudarte a conseguir o mantener tu estancia legal en España.</h2>
+              <h2 className="h2 font-cabinet-grotesk text-gray-100">{t.services.heading}</h2>
             </div>
 
-            {/* Grid estilo cards con overlay y texto centrado */}
+            {/* Grid */}
             <div className="max-w-6xl mx-auto grid gap-3 sm:gap-4 grid-cols-3 md:grid-cols-3 lg:grid-cols-6">
-              {[
-                { t: 'Estudios de Construcción', s: ConstruccionImg, a: 'Construcción' },
-                { t: 'Estudios de Sanitario', s: SanitarioImg, a: 'Sanitario' },
-                { t: 'Estudios de Hotelería', s: HoteleriaImg, a: 'Hotelería' },
-                { t: 'Diseño de sistemas', s: Service01, a: 'Item 01' },
-                { t: 'Administración y Finanzas', s: Service02, a: 'Item 02' },
-                { t: 'Ilustración', s: Service03, a: 'Item 03' },
-                { t: 'Publicidad', s: Service04, a: 'Item 04' },
-                { t: 'Wireframes', s: Service05, a: 'Item 05' },
-                { t: 'Grado en Marketing y Comercio Digital', s: Service06, a: 'Item 06' },
-                { t: 'Grado en ADE', s: Service07, a: 'Item 07' },
-                { t: 'Grado en Turismo y Hostelería', s: Service08, a: 'Item 08' },
-                { t: 'Edición de video', s: Service09, a: 'Item 09' },
-                { t: 'FP en Desarrollo web', s: Service10, a: 'Item 10' },
-                { t: 'Señalización', s: Service11, a: 'Item 11' },
-                { t: 'Máster en Marketing Digital', s: Service12, a: 'Item 12' },
-                { t: 'Auxiliares de Enfermería', s: Service13, a: 'Item 13' },
-                { t: 'Máster en Data & Business Analytics', s: Service14, a: 'Item 14' },
-                { t: 'Máster en Recursos Humanos', s: Service15, a: 'Item 15' },
-              ].map((it, idx) => (
+              {items.map((it, idx) => (
                 <a key={idx} href="https://wa.me/34605574136" className="relative group block rounded-lg overflow-hidden">
                   <div className="aspect-[4/3] w-full relative">
                     <Image
@@ -85,8 +92,6 @@ export default function Services() {
                 </a>
               ))}
             </div>
-
-            {/* Bottom gradient removed (no button) */}
           </div>
         </div>
       </div>
